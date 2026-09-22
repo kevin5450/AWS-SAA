@@ -2,16 +2,23 @@
 
 AWS Certified Solutions Architect – Associate(SAA-C03) 학습 내용을 한곳에서 관리하기 위한 저장소입니다.
 
-[![AWS Certified Solutions Architect - Associate](https://img.shields.io/badge/AWS-Certified%20Solutions%20Architect%20Associate-FF9900?logo=amazonwebservices&logoColor=white)](https://www.credly.com/badges/4a1cc8ec-283b-415a-a5dd-19e48a6378ea/public_url)
+<p align="center">
+  <a href="https://www.credly.com/badges/4a1cc8ec-283b-415a-a5dd-19e48a6378ea/public_url">
+    <img src="assets/aws-saa-badge.png" alt="AWS Certified Solutions Architect - Associate" width="180" />
+  </a>
+</p>
 
-- Certification: AWS Certified Solutions Architect – Associate
-- Exam: SAA-C03
-- Status: Active
-- Valid through: 2029-09-21
-- Credly: [Verify badge](https://www.credly.com/badges/4a1cc8ec-283b-415a-a5dd-19e48a6378ea/public_url)
+<p align="center">
+  <strong>AWS Certified Solutions Architect – Associate</strong><br/>
+  SAA-C03 · Active · Valid through 2029-09-21
+</p>
 
-> GitHub README에서는 Credly의 `<script>` 임베드가 실행되지 않기 때문에 위에는 클릭 가능한 정적 배지를 사용합니다.  
-> 실제 Credly 임베드 배지는 `docs/index.html`에 넣어 두었습니다.
+<p align="center">
+  <a href="https://www.credly.com/badges/4a1cc8ec-283b-415a-a5dd-19e48a6378ea/public_url">Verify on Credly</a>
+</p>
+
+> GitHub README에서는 Credly의 `<script>` 임베드가 실행되지 않기 때문에 위에는 실제 AWS SAA 배지 이미지를 사용합니다.  
+> 배지를 클릭하면 Credly 검증 페이지로 이동합니다. 실제 Credly embed 코드는 `docs/index.html`에 유지합니다.
 
 ---
 
@@ -20,6 +27,8 @@ AWS Certified Solutions Architect – Associate(SAA-C03) 학습 내용을 한곳
 ```text
 AWS-SAA/
 ├─ README.md
+├─ assets/
+│  └─ aws-saa-badge.png    # AWS SAA 배지 이미지
 ├─ certifications/        # 자격증/배지 정보
 ├─ notes/                 # SAA 개념 정리
 ├─ labs/                  # AWS 실습
