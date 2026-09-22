@@ -21,10 +21,17 @@
       border: 1px solid #30363d;
       border-radius: 18px;
       padding: 32px;
+      text-align: center;
     }
     h1 { margin-top: 0; }
     a { color: #58a6ff; }
-    .badge-wrap {
+    .static-badge {
+      width: 180px;
+      height: auto;
+      margin: 16px auto 8px;
+      display: block;
+    }
+    .credly-embed {
       margin-top: 28px;
       min-height: 270px;
       display: flex;
@@ -40,6 +47,10 @@
 <body>
   <main>
     <div class="card">
+      <a href="https://www.credly.com/badges/4a1cc8ec-283b-415a-a5dd-19e48a6378ea/public_url" target="_blank" rel="noopener">
+        <img class="static-badge" src="../assets/aws-saa-badge.png" alt="AWS Certified Solutions Architect - Associate" />
+      </a>
+
       <h1>AWS Certified Solutions Architect – Associate</h1>
       <div class="meta">
         <div>Exam: SAA-C03</div>
@@ -47,7 +58,7 @@
         <div>Valid through: 2029-09-21</div>
       </div>
 
-      <div class="badge-wrap">
+      <div class="credly-embed">
         <div
           data-iframe-width="150"
           data-iframe-height="270"
