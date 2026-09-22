@@ -1,6 +1,9 @@
 # AWS-SAA
 
-AWS Certified Solutions Architect – Associate(SAA-C03) 학습 내용을 한곳에서 관리하기 위한 저장소입니다.
+SAA 공부하면서 정리했던 내용이랑 실습 기록을 모아두는 저장소입니다.
+
+처음에는 시험 준비용으로 시작했는데, 공부하다 보니 VPC나 ECS처럼 직접 구성해본 내용이랑  
+실습하면서 막혔던 부분도 같이 남겨두는 게 좋을 것 같아서 계속 추가하고 있습니다.
 
 <p align="center">
   <a href="https://www.credly.com/badges/4a1cc8ec-283b-415a-a5dd-19e48a6378ea/public_url">
@@ -9,103 +12,89 @@ AWS Certified Solutions Architect – Associate(SAA-C03) 학습 내용을 한곳
 </p>
 
 <p align="center">
-  <strong>AWS Certified Solutions Architect – Associate</strong><br/>
-  SAA-C03 · Active · Valid through 2029-09-21
+  AWS Certified Solutions Architect – Associate (SAA-C03)<br/>
+  Valid through 2029-09-21
 </p>
 
-<p align="center">
-  <a href="https://www.credly.com/badges/4a1cc8ec-283b-415a-a5dd-19e48a6378ea/public_url">Verify on Credly</a>
-</p>
-
-> GitHub README에서는 Credly의 `<script>` 임베드가 실행되지 않기 때문에 위에는 실제 AWS SAA 배지 이미지를 사용합니다.  
-> 배지를 클릭하면 Credly 검증 페이지로 이동합니다. 실제 Credly embed 코드는 `docs/index.html`에 유지합니다.
+배지를 누르면 Credly 인증 페이지로 이동합니다.
 
 ---
 
-## Repository Map
+## 정리해둔 내용
+
+| 주제 | 정리 |
+|---|---|
+| VPC / Networking | [VPC, Subnet, Route Table, SG, NACL 등](notes/01-vpc-networking.md) |
+| EC2 / ELB / ASG | [EC2, EBS, ALB/NLB/GWLB, Auto Scaling](notes/02-ec2-elb-asg.md) |
+| S3 / Storage | [S3, EFS, FSx](notes/03-s3-storage.md) |
+| Database | [RDS, Aurora, DynamoDB, ElastiCache, Redshift](notes/04-databases.md) |
+| Security | [IAM, KMS, WAF](notes/05-security-iam-kms-waf.md) |
+| Serverless | [Lambda, SQS, SNS, EventBridge](notes/06-serverless-integration.md) |
+| Container | [ECR, ECS, EKS](notes/07-containers-ecs-ecr.md) |
+| Monitoring | [CloudWatch, CloudTrail, Config](notes/08-monitoring-governance.md) |
+| Hybrid | [VPN, Direct Connect, DXGW, TGW](notes/09-hybrid-networking.md) |
+
+전체 흐름은 [roadmap](notes/00-roadmap.md)에 따로 정리했습니다.
+
+## 실습
+
+### VPC 3-Tier
+
+회사 Sandbox에서 VPC부터 직접 만들면서 진행한 실습입니다.
+
+`VPC → Public/Private Subnet → IGW/NAT → ALB → EC2`
+
+라우팅 테이블이나 SG를 잘못 잡았을 때 어디부터 확인해야 하는지도 같이 기록하려고 합니다.
+
+→ [VPC 3-Tier 실습](labs/vpc-3tier/README.md)
+
+### ECS Cats & Dogs
+
+ECR에 이미지를 올리고 ECS에서 Task/Service로 실행한 뒤 ALB까지 연결한 실습입니다.
+
+`Docker Image → ECR → ECS → ALB`
+
+Task Execution Role, Security Group, ECR Image URI처럼 실습하면서 헷갈렸던 부분도 같이 정리했습니다.
+
+→ [ECS 실습](labs/ecs-cats-dogs/README.md)
+
+### Client VPN
+
+Client VPN은 별도로 구성해보면서 순서대로 기록할 예정입니다.
+
+→ [Client VPN 실습](labs/client-vpn/README.md)
+
+## 시험 준비할 때 헷갈렸던 것
+
+문제를 많이 풀면서 반복해서 틀렸던 개념이나,  
+문제에서 어떤 문장이 정답 힌트였는지를 따로 모으고 있습니다.
+
+- [빠르게 보는 키워드](exam-review/quick-keywords.md)
+- [오답 정리](exam-review/wrong-answers.md)
+
+단순히 정답만 적기보다는
+
+```text
+문제에서 잡아야 하는 힌트
+→ 왜 이 서비스가 답인지
+→ 다른 선택지는 언제 답이 되는지
+```
+
+정도까지는 같이 적어두려고 합니다.
+
+## 폴더
 
 ```text
 AWS-SAA/
-├─ README.md
-├─ assets/
-│  └─ aws-saa-badge.png    # AWS SAA 배지 이미지
-├─ certifications/        # 자격증/배지 정보
-├─ notes/                 # SAA 개념 정리
-├─ labs/                  # AWS 실습
-│  ├─ vpc-3tier/
-│  ├─ ecs-cats-dogs/
-│  └─ client-vpn/
-├─ troubleshooting/       # 실습 중 오류와 해결 과정
-├─ exam-review/           # 오답노트·키워드·복습
-├─ study-log/             # 날짜별 학습 기록
-├─ extras/
-│  └─ agentic-ai/         # SAA 범위를 넘어선 AWS/AI 학습
-└─ docs/
-   └─ index.html           # GitHub Pages + Credly 실배지
+├─ assets/              # 이미지
+├─ certifications/     # 자격증 관련
+├─ notes/              # 개념 정리
+├─ labs/               # 직접 해본 실습
+├─ troubleshooting/    # 오류 / 해결 과정
+├─ exam-review/        # 시험 복습, 오답
+├─ study-log/          # 공부 기록
+├─ extras/             # SAA 외에 추가로 공부한 내용
+└─ docs/               # GitHub Pages
 ```
 
-## Core Notes
-
-| 영역 | 문서 |
-|---|---|
-| VPC / Networking | [01-vpc-networking.md](notes/01-vpc-networking.md) |
-| EC2 / ELB / ASG | [02-ec2-elb-asg.md](notes/02-ec2-elb-asg.md) |
-| S3 / Storage | [03-s3-storage.md](notes/03-s3-storage.md) |
-| Database | [04-databases.md](notes/04-databases.md) |
-| IAM / KMS / WAF | [05-security-iam-kms-waf.md](notes/05-security-iam-kms-waf.md) |
-| Lambda / SQS / SNS / EventBridge | [06-serverless-integration.md](notes/06-serverless-integration.md) |
-| ECS / ECR / Containers | [07-containers-ecs-ecr.md](notes/07-containers-ecs-ecr.md) |
-| CloudWatch / Config / Governance | [08-monitoring-governance.md](notes/08-monitoring-governance.md) |
-| VPN / Direct Connect / TGW | [09-hybrid-networking.md](notes/09-hybrid-networking.md) |
-
-## Labs
-
-### VPC 3-Tier
-VPC `10.0.0.0/16`, Public Subnet ×2, Private Subnet ×2, IGW, NAT Gateway, Public ALB, Private EC2를 직접 구성한 실습 기록입니다.
-
-→ [labs/vpc-3tier](labs/vpc-3tier/README.md)
-
-### ECS Cats & Dogs
-ECR 이미지 → ECS Task Definition → ECS Service → ALB 연결 흐름을 정리합니다.
-
-→ [labs/ecs-cats-dogs](labs/ecs-cats-dogs/README.md)
-
-### Client VPN
-Client VPN 구성과 접속 흐름을 별도 실습으로 관리합니다.
-
-→ [labs/client-vpn](labs/client-vpn/README.md)
-
-## Exam Review
-
-문제 자체를 단순 암기하는 대신 다음 형식으로 누적합니다.
-
-```text
-문제의 힌트
-→ 어떤 AWS 서비스가 답인지
-→ 왜 정답인지
-→ 다른 선지는 언제 정답이 되는지
-```
-
-- [Quick Keywords](exam-review/quick-keywords.md)
-- [Wrong Answers](exam-review/wrong-answers.md)
-
-## Study Rule
-
-새로 공부한 내용은 아래 기준으로 저장합니다.
-
-1. 개념이면 `notes/`
-2. 직접 AWS에서 실행했으면 `labs/`
-3. 오류가 발생했으면 `troubleshooting/`
-4. 문제풀이에서 헷갈렸으면 `exam-review/`
-5. 날짜별 진행 상황은 `study-log/`
-6. SAA 범위를 넘어서는 AI/Agentic AI 내용은 `extras/`
-
-## GitHub Pages
-
-`docs/index.html`에는 Credly 공식 embed 코드가 포함되어 있습니다.
-
-GitHub에서:
-
-`Settings → Pages → Deploy from a branch → main /docs`
-
-로 설정하면 저장소의 인증 페이지에서 실제 Credly 배지를 렌더링할 수 있습니다.
+앞으로 AWS 공부나 실습하면서 새로 알게 된 내용은 계속 이 저장소에 추가할 예정입니다.
